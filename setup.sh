@@ -8,7 +8,6 @@ GIT_EDITOR="vim"
 # Variables - change these to customize your setup!
 PYTHON2_VERSION="2.7.10"
 PYTHON3_VERSION="3.5.0"
-RUBY_VERSION="2.2.3"
 LOG_FILE_PATH="$HOME/.my_dev-env_setup.txt"
 CHEAT_SHEET_PATH="/usr/local/bin/"
 CHEAT_SHEET_NAME="cheat"
@@ -33,7 +32,7 @@ echo "Starting the DjangonDevEnv setup process... sit tight!"
   # Install pyenv
   echo -e "\n===\nInstalling pyenv\n==="
   curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-  export PATH="$HOME/.pyenv/bin:$PATH"
+  export PATH=$HOME/.pyenv/bin:$PATH
 
   # Use pyenv to install python
   echo -e "\n===\nUse pyenv to install Python 2 & 3\n==="
@@ -43,12 +42,12 @@ echo "Starting the DjangonDevEnv setup process... sit tight!"
   pyenv global $PYTHON3_VERSION
 
   # Configure git
-  git config --global user.name "Brittany Welsh"
-  git config --global user.email "hello+world@brittanywelsh.com"
-  git config --global core.editor "vim"
+  git config --global user.name $GIT_NAME
+  git config --global user.email $GIT_EMAIL
+  git config --global core.editor $GIT_EDITOR
 
   # Install the cheat sheet and add it to $PATH
-  echo -e "\n===\nAdding Cheat Sheet script\n==="
+  echo -e "\nAdding Cheat Sheet script...\n"
   sudo cp cheat $CHEAT_SHEET_PATH
   sudo chmod +x $CHEAT_SHEET_PATH/$CHEAT_SHEET_NAME
   sudo chmod +x install-cheatsheet.sh

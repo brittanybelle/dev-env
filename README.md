@@ -6,17 +6,19 @@ This is a simple bash script that runs a list of installation commands, to simpl
 ### What gets installed?
 
 Here's the full breakdown of what the `setup.sh` script runs:
+
 1. Update/upgrade apt-get packages
 2. Install python-setuptools (via apt-get)
 3. Install pip (via easy-install)
 4. Install virtualenv (via pip, system-wide)
 5. Install pyenv
 6. Install Python 2.7 and Python 3 (via pyenv)
+7. Configure git name, email and  default editor
 8. Install "cheat sheet" (included in this repo)
 
 ### Usage
 
-From your development machine, first download the repo. Next, edit the setup script as you please, then run it from within the `django-dev-env` directory with `./setup.sh`. The full list of commands is:
+From your development machine, first download the repo. Next, edit the setup script as you please, then run it from within the `django-dev-env` directory via `./setup.sh`. The full list of commands is:
 
 ```
 git clone https://github.com/brittanywelsh/django-dev-env.git
