@@ -32,7 +32,6 @@ echo "Starting the DjangonDevEnv setup process... sit tight!"
   # Install pyenv
   echo -e "\n===\nInstalling pyenv\n==="
   curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-  export PATH=$HOME/.pyenv/bin:$PATH
 
   # Use pyenv to install python
   echo -e "\n===\nUse pyenv to install Python 2 & 3\n==="
