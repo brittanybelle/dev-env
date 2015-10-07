@@ -47,12 +47,12 @@ echo "Starting the DjangonDevEnv setup process... sit tight!"
   git config --global core.editor $GIT_EDITOR
 
   # Install the cheat sheet and add it to $PATH
-  echo -e "\nAdding Cheat Sheet script...\n"
+  echo -e "\n=== Adding Cheat Sheet script... ==="
   sudo cp cheat $CHEAT_SHEET_PATH
   sudo chmod +x $CHEAT_SHEET_PATH/$CHEAT_SHEET_NAME
   sudo chmod +x install-cheatsheet.sh
 
-  echo -e "\n=== End of installation script! ==="
+  echo -e "\n=== End of installation script ==="
 
 } 2>&1 | tee $LOG_FILE_PATH
 
