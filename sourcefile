@@ -10,3 +10,5 @@ source /home/nitrous/.pyenv/versions/3.5.0/bin/virtualenvwrapper.sh
 
 # Add cheatsheet
 export PATH="$PATH:$HOME/.cheat"
+
+clear

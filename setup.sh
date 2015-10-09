@@ -37,11 +37,11 @@ display ()
   echo "... done!"
 
   display "Installing PostgreSQL"
-  sudo apt-get install -y postgresql
+  sudo apt-get install -yq postgresql
   echo "... done!"
 
   display "Installing pip"
-  sudo apt-get install -y python-setuptools
+  sudo apt-get install -yq python-setuptools
   sudo easy_install pip
   sudo pip install -U pip
   echo "... done!"
@@ -68,7 +68,7 @@ display ()
   pip install cookiecutter
 
   display "Installing Ruby"
-  sudo apt-get install -y ruby-full
+  sudo apt-get install -yq ruby-full
 
   display "Installing Heroku toolbelt"
   wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | zsh
