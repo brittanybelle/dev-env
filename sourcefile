@@ -6,7 +6,6 @@ eval "$(pyenv virtualenv-init -)"
 
 # Enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
 source /home/nitrous/.pyenv/versions/3.5.0/bin/virtualenvwrapper.sh
 
 # Add cheatsheet

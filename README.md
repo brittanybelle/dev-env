@@ -10,7 +10,7 @@ From your development machine, first download `setup.sh`, and edit the script va
 ```
 curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/setup.sh > setup.sh
 # [edit setup.sh variables to suit your needs]
-chmod u+x setup.sh
+sudo chmod u+x setup.sh
 ./setup.sh
 ```
 
@@ -38,10 +38,12 @@ Here's the full summary of what the `setup.sh` script runs:
 11. Install a "cheat sheet" (see below for usage)
 12. Add sources to ~/.zshrc file
 
-*NOTE:* pyenv, virtualenv, virtualenvwrapper, and cookiecutter are all installed globally, i.e. not contained within any kind of virtual environment. Make sure you understand the implications of this in your own environment!
+All of the information printed out to the screen during the installation process is also nicely logged for you in a file located in your home directory, `~/.my_dev-env_setup.txt`, so later you can double-check what exactly the script did.
+
+**NOTE:** pyenv, virtualenv, virtualenvwrapper, and cookiecutter are all installed globally, i.e. not contained within any kind of virtual environment. Make sure you understand the implications of this in your own environment!
 
 ### Using the Cheat Sheet
 
 The setup script will create a new folder in your home directory called `~/.cheat/`. Inside this folder is a shell script, named "cheat", which you can invoke at any time by typing `cheat` into your shell. It contains some useful syntax/reminders. Feel free to edit your cheat file to add your own commands!
 
-*NOTE:* to use `cheat` for the first time after running the installation script, you will have to open a new shell so that the path variable is updated appropriately.
+**NOTE:** to use `cheat` for the first time after running the installation script, you will have to open a new shell so that the path variable is updated appropriately.
