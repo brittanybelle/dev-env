@@ -1,1 +1,13 @@
-export PATH=$HOME/.pyenv/bin:$PATH
+
+# Add pyenv and its shims to global path
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Enable virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /home/nitrous/.pyenv/versions/3.5.0/bin/virtualenvwrapper.sh
+
+# Add cheatsheet
+export PATH="$PATH:$HOME/.cheat"

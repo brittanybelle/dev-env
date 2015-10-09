@@ -1,33 +1,47 @@
 # django-dev-env
 ## Quick development-environment setup for lazy people.
 
-This is a simple bash script that runs a list of installation commands, to simplify setup of a new development VM. It is intended to be used on a fresh Ubuntu installation.
+This is a simple bash script that runs a list of installation commands, to simplify setup of a new development VM. It is intended to be used on a fresh Ubuntu installation in a zsh shell, perfect for [Nitrous containers](http://www.nitrous.io)!
+
+### Installation
+
+From your development machine, first download `setup.sh`, and edit the script variables in that file. (You don't have to download the whole repo; the setup script will pull the cheat sheet and sourcefile using curl.)
+
+```
+curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/setup.sh > setup.sh
+# [edit setup.sh variables to suit your needs]
+chmod u+x setup.sh
+./setup.sh
+```
+
+If you're me, or if you're just testing things out, try this (but remember to re-configure your git settings back to your own name and email!):
+
+```
+curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/setup.sh | zsh
+```
 
 ### What gets installed?
 
-Here's the full breakdown of what the `setup.sh` script runs:
+Here's the full summary of what the `setup.sh` script runs:
 
-1. Update/upgrade apt-get packages
-2. Install python-setuptools (via apt-get)
-3. Install pip (via easy-install)
-4. Install virtualenv (via pip, system-wide)
-5. Install pyenv
-6. Install Python 2.7 and Python 3 (via pyenv)
-7. Configure git name, email and  default editor
-8. Install "cheat sheet" (included in this repo)
+1. Update/upgrade Ubuntu packages (apt-get)
+2. Configure git
+3. Install PostgreSQL (via apt-get)
+4. Install python-setuptools (via apt-get)
+5. Install pip (via easy-install)
+6. Install pyenv (via [pyenv-installer](https://github.com/yyuu/pyenv-installer))
+7. Install Python via pyenv
+8. Install virtualenv and virtualenvwrapper (via pip)
+9. Install django-cookiecutter (via pip)
+10. Install Ruby (via apt-get)
+11. Install the Heroku toolbelt
+11. Install a "cheat sheet" (see below for usage)
+12. Add sources to ~/.zshrc file
 
-### Usage
+*NOTE:* pyenv, virtualenv, virtualenvwrapper, and cookiecutter are all installed globally, i.e. not contained within any kind of virtual environment. Make sure you understand the implications of this in your own environment!
 
-From your development machine, first download the repo. Next, edit the setup script as you please, then run it from within the `django-dev-env` directory via `./setup.sh`. To have access to pyenv shims, you'll also want to `source sourcefile` to add it to your path. The full list of commands is:
+### Using the Cheat Sheet
 
-```
-git clone https://github.com/brittanywelsh/django-dev-env.git
-cd django-dev-env
-chmod u+x setup.sh
-./setup.sh
-source sourcefile
-```
+The setup script will create a new folder in your home directory called `~/.cheat/`. Inside this folder is a shell script, named "cheat", which you can invoke at any time by typing `cheat` into your shell. It contains some useful syntax/reminders. Feel free to edit your cheat file to add your own commands!
 
-NOTE: if you want to install the cheat sheet, make sure to run the script from within the `django-env-dev` directory. After the script finishes running, you won't need the repo any more so you can happily delete it.
-
-You can also keep the `django-dev-env` folder around if you want to make your own modifications to the cheat sheet. To re-install a modified cheat sheet, simply run the `install-cheatsheet.sh` script from within the `django-dev-env` folder.
+*NOTE:* to use `cheat` for the first time after running the installation script, you will have to open a new shell so that the path variable is updated appropriately.

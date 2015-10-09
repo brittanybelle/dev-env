@@ -8,50 +8,80 @@ GIT_EDITOR="vim"
 # Variables - change these to customize your setup!
 PYTHON2_VERSION="2.7.10"
 PYTHON3_VERSION="3.5.0"
-LOG_FILE_PATH="$HOME/.my_dev-env_setup.txt"
-CHEAT_SHEET_PATH="/usr/local/bin/"
+CHEAT_SHEET_PATH="$HOME/.cheat"
 CHEAT_SHEET_NAME="cheat"
+LOG_FILE_PATH="$HOME/.my_dev-env_setup.txt"
 
 ###
-echo "Starting the DjangonDevEnv setup process... sit tight!"
+echo "Starting the django-dev-env setup process... sit tight!"
 ###
 
+display ()
+{ # just aesthetic! :)
+  echo -e "\n=========="
+  echo -e $1
+  echo -e "==========\n"
+}
+
+# Main script:
 {
-  # Updating Ubuntu packages
-  echo -e "\n===\nUpdating Ubuntu Packages\n==="
+  display "Updating Ubuntu Packages"
   sudo apt-get update
-  sudo apt-get upgrade
+  sudo apt-get dist-upgrade
+  echo "... done!"
 
-  # Install preliminary python packages
-  echo -e "\n===\nInstalling Python Packages\n==="
-  sudo apt-get install python-setuptools
-  sudo easy_install pip
-  sudo pip install -U pip
-  sudo pip install virtualenv
-
-  # Install pyenv
-  echo -e "\n===\nInstalling pyenv\n==="
-  curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-
-  # Use pyenv to install python
-  echo -e "\n===\nUse pyenv to install Python 2 & 3\n==="
-  pyenv update
-  pyenv install $PYTHON2_VERSION
-  pyenv install $PYTHON3_VERSION
-  pyenv global $PYTHON3_VERSION
-
-  # Configure git
+  display "Configuring Git"
   git config --global user.name $GIT_NAME
   git config --global user.email $GIT_EMAIL
   git config --global core.editor $GIT_EDITOR
+  echo "... done!"
 
-  # Install the cheat sheet and add it to $PATH
-  echo -e "\n=== Adding Cheat Sheet script... ==="
-  sudo cp cheat $CHEAT_SHEET_PATH
-  sudo chmod +x $CHEAT_SHEET_PATH/$CHEAT_SHEET_NAME
-  sudo chmod +x install-cheatsheet.sh
+  display "Installing PostgreSQL"
+  sudo apt-get install postgresql
+  echo "... done!"
 
-  echo -e "\n=== End of installation script ==="
+  display "Installing pip"
+  sudo apt-get install python-setuptools
+  sudo easy_install pip
+  sudo pip install -U pip
+  echo "... done!"
+
+  display "Installing pyenv"
+  curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | zsh
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  echo "... done!"
+
+  display "Using pyenv to install Python"
+  pyenv install $PYTHON2_VERSION
+  pyenv install $PYTHON3_VERSION
+  pyenv global $PYTHON3_VERSION
+  echo "... done!"
+
+  display "Installing virtualenv and virtualenvwrapper"
+  pip install virtualenv
+  pip install virtualenvwrapper
+  echo "... done!"
+
+  display "Installing cookiecutter"
+  pip install cookiecutter
+
+  display "Installing Ruby"
+  sudo apt-get install ruby-full
+
+  display "Installing Heroku toolbelt"
+  wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | zsh
+
+  display "Installing cheatsheet"
+  mkdir -p $CHEAT_SHEET_PATH
+  curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/cheat.sh > $CHEAT_SHEET_PATH/$CHEAT_SHEET_NAME
+  sudo chmod u+x $CHEAT_SHEET_PATH/$CHEAT_SHEET_NAME
+  echo "... done!"
+
+  display "Adding sources to zsh shell startup"
+  curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/sourcefile >> $HOME/.zshrc
+  echo "... done!"
 
 } 2>&1 | tee $LOG_FILE_PATH
 

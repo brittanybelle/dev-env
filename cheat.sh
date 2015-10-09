@@ -1,8 +1,5 @@
 #!/bin/bash
 
-PYTHON2= "2.7.10"
-echo $PYTHON2
-
 echo -e "\
 ===========================\n\
 DjangoDev Shell Cheat Sheet\n\
@@ -16,7 +13,8 @@ TOPIC_DJANGO="\n\
 django\n\
 ======\n\
 \n\
-./manage.py runserver               Start the Django server.\n\
+./manage.py runserver               Start the Django server at 127.0.0.1:8000\n\
+./manage.py runserver 0.0.0.0:3000  Start the Django server on Nitrous\n\
 "
 
 TOPIC_PIP="\n\
@@ -29,6 +27,7 @@ pip install -U PACKAGE              Update installed PACKAGE.\n\
                                     (Use this to update pip itself!)\n\
 pip install -r requirements.txt     Load requirements from file.\n\
 pip freeze > requirements.txt       Write current pip config into file.\n\
+pip list                            List currently-installed packages.\n\
 "
 
 TOPIC_PYENV="\n\
@@ -50,8 +49,12 @@ TOPIC_VIRTUALENV="\n\
 virtualenv\n\
 ==========\n\
 \n\
-virtualenv NAME-OF-ENV              Create a new virtual environment.\n\
-source ENV-NAME/bin/activate        Enter the ENV-NAME environment.\n\
+virtualenv -p python3  NAME-OF-ENV      Create a new virtual environment.\n\
+source ENV-NAME/bin/activate            Enter the ENV-NAME environment.\n\
+\n\
+If you have virtualenvwrapper:
+workon NAME-OF-ENV                      Enter the ENV-NAME environment.\n\
+lssitepackages                          View site packages.\n\
 "
 
 OPTIONS="django pip pyenv virtualenv quit"
