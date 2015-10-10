@@ -32,9 +32,8 @@ Here's the full summary of what the `setup.sh` script runs:
 6. Install pyenv (via [pyenv-installer](https://github.com/yyuu/pyenv-installer))
 7. Install Python via pyenv
 8. Install virtualenv and virtualenvwrapper (via pip)
-9. Install django-cookiecutter (via pip)
-10. Install Ruby (via apt-get)
-11. Install the Heroku toolbelt
+9. Install Ruby (via apt-get)
+10. Install the Heroku toolbelt
 11. Install a "cheat sheet" (see below for usage)
 12. Add sources to ~/.zshrc file
 
