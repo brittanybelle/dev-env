@@ -64,9 +64,6 @@ display ()
   pip install virtualenvwrapper
   echo "... done!"
 
-  display "Installing cookiecutter"
-  pip install cookiecutter
-
   display "Installing Ruby"
   sudo apt-get install -yq ruby-full
 
