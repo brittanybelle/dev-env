@@ -26,7 +26,7 @@ Here's the full summary of what the `setup.sh` script runs:
 
 1. Update/upgrade Ubuntu packages (apt-get)
 2. Configure git
-3. Install PostgreSQL (via apt-get)
+3. Install PostgreSQL and python-psycopg2 (via apt-get)
 4. Install python-setuptools (via apt-get)
 5. Install pip (via easy-install)
 6. Install pyenv (via [pyenv-installer](https://github.com/yyuu/pyenv-installer))

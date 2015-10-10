@@ -36,8 +36,8 @@ display ()
   git config --global core.editor $GIT_EDITOR
   echo "... done!"
 
-  display "Installing PostgreSQL"
-  sudo apt-get install -yq postgresql
+  display "Installing PostgreSQL and psycopg2"
+  sudo apt-get install -yq postgresql python-psycopg2
   echo "... done!"
 
   display "Installing pip"
