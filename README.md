@@ -9,12 +9,12 @@ From your development machine, first download `setup.sh`, and edit the script va
 
 ```
 curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/setup.sh > setup.sh
-# [edit setup.sh variables to suit your needs]
+# [NOTE - at this point, edit the setup.sh variables to suit your needs!]
 sudo chmod u+x setup.sh
 ./setup.sh
 ```
 
-If you're me, or if you're just testing things out, try this (but remember to re-configure your git settings back to your own name and email!):
+OR, if you're me, try this (but if you're not me, remember to re-configure your git settings back to your own name and email!):
 
 ```
 curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/setup.sh | zsh
@@ -24,7 +24,7 @@ curl -L https://raw.githubusercontent.com/brittanywelsh/django-dev-env/master/se
 
 Here's the full summary of what the `setup.sh` script runs:
 
-1. Update/upgrade Ubuntu packages (apt-get)
+1. Update/upgrade Ubuntu packages (via apt-get)
 2. Configure git
 3. Install PostgreSQL and python-psycopg2 (via apt-get)
 4. Install python-setuptools (via apt-get)
