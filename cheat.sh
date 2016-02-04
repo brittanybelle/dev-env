@@ -50,11 +50,20 @@ virtualenv\n\
 ==========\n\
 \n\
 virtualenv -p python3  NAME-OF-ENV      Create a new virtual environment.\n\
-source ENV-NAME/bin/activate            Enter the ENV-NAME environment.\n\
+source NAME-OF-ENV/bin/activate         Enter the NAME-OF-ENV environment.\n\
 \n\
-If you have virtualenvwrapper:
-workon NAME-OF-ENV                      Enter the ENV-NAME environment.\n\
+** Using virtualenvwrapper: **\n\
+mkvirtualenv NAME-OF-ENV                Make new NAME-OF-ENV environment.\n\
+lsvirtualenv                            View list of all your environments.\n\
+showvirtualenv NAME-OF-ENV              Show the details for a single virtualenv.\n\
+rmvirtualenv NAME-OF-ENV                Remove an existing environment.\n\
+cpvirtualenv NAME-OF-ENV  TARGET-NAME   Copy virtualenv to new env.\n\
+workon NAME-OF-ENV                      Enter the NAME-OF-ENV environment.\n\
+deactivate                              Exit the current environment.\n\
 lssitepackages                          View site packages.\n\
+\n\
+NOTE: using virtualenvwrapper, envs are stored in the WORKON_HOME common\n\
+directory. To see where this directory is located, try 'echo $WORKON_HOME'.\n\
 "
 
 OPTIONS="django pip pyenv virtualenv quit"
